@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import todos from './modules/todos';
 import colorChange from './modules/colorChange';
+import createVuexPersisted from 'vuex-persistedstate';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -17,4 +18,5 @@ export default new Vuex.Store({
     todos,
     colorChange,
   },
+  plugins: [createVuexPersisted()],
 });
