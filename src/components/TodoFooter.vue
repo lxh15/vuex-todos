@@ -12,11 +12,12 @@
         <a href="javascript:;">已完成</a>
       </li>
     </ul>
-    <button class="clear-completed">清除已完成</button>
+    <button class="clear-completed" @click="delAllComplete">清除已完成</button>
   </footer>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   // mounted() {
   //   const lis = document.querySelectorAll(".filters li a");
@@ -31,5 +32,12 @@ export default {
   //     });
   //   });
   // },
+  methods: {
+    ...mapActions(['delAllCompleteAsync']),
+    delAllComplete() {
+      this.delAllCompleteAsync();
+      // console.log(1);
+    },
+  },
 };
 </script>

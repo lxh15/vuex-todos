@@ -30,12 +30,24 @@ export default {
         return alert('请输入任务');
       }
       console.log(payload);
-      const id = state.todosTask[state.todosTask.length - 1].id + 1 || 1;
+      const id = state.todosTask[state.todosTask.length - 1]
+        ? state.todosTask[state.todosTask.length - 1].id + 1
+        : 1;
       state.todosTask.push({
         name: payload,
         done: false,
         id: id,
       });
+    },
+    // 点击删除删除本项
+    delTodosTask(state, id) {
+      const index = state.todosTask.findIndex((ele) => ele.id === id);
+      console.log(index);
+      state.todosTask.splice(index, 1);
+    },
+    // 清除已完成
+    delAllComplete(state) {
+      state.todosTask = state.todosTask.filter((ele) => ele.done === false);
     },
   },
 
@@ -49,6 +61,16 @@ export default {
       setTimeout(() => {
         context.commit('addTodosTask', val);
       }, 300);
+    },
+    delAllCompleteAsync(context) {
+      setTimeout(() => {
+        context.commit('delAllComplete');
+      }, 200);
+    },
+    delTodosTaskAsync(context, id) {
+      setTimeout(() => {
+        context.commit('delTodosTask', id);
+      }, 1);
     },
   },
 };
