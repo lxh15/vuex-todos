@@ -19,12 +19,27 @@ export default {
     ],
   },
   mutations: {
+    // 改变任务的状态
     modifyTodos(state, payload) {
       state.todosTask[payload].done = !state.todosTask[payload].done;
-      console.log(state.todosTask[payload].done);
+      // console.log(state.todosTask[payload].done);
     },
+    // 按下回车添加任务
+    addTodos(state, payload) {
+      if (payload==='') {
+        return alert('请输入任务')
+      }
+      console.log(payload);
+      const id = state.todosTask[state.todosTask.length-1].id+1 || 1
+      state.todosTask.push({
+        name: payload,
+        done: false,
+        id:id
+      })
+    }
   },
-    actions: {
+
+  actions: {
         modifyTodosAsync(context,index) {
             setTimeout(() => {
                 context.commit('modifyTodos',index)
