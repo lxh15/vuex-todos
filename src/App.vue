@@ -6,6 +6,10 @@
       <todo-main></todo-main>
       <todo-footer></todo-footer>
     </div>
+    <MyButton circle type="normal">普通按钮</MyButton>
+    <MyButton circle type="default">默认按钮</MyButton>
+    <MyButton circle type="success">主要按钮</MyButton>
+    <MyButton circle type="error">警告按钮</MyButton>
   </div>
 </template>
 
@@ -14,6 +18,7 @@ import TodoFooter from './components/TodoFooter.vue'; // shift + alt + 下
 import TodoHeader from './components/TodoHeader.vue'; // shift + alt + 下
 import TodoMain from './components/TodoMain.vue'; // shift + alt + 下
 import { mapActions } from 'vuex';
+import MyButton from './components/MyButton.vue';
 export default {
   data() {
     return {};
@@ -23,6 +28,7 @@ export default {
     TodoFooter,
     TodoHeader,
     TodoMain,
+    MyButton,
   },
 
   created() {},
