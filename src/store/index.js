@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import todos from './modules/todos'
+import todos from './modules/todos';
+import colorChange from './modules/colorChange';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-  },
+  state: {},
   getters: {
     // todosTask(state) {
     //   return state.todos.todosTask
@@ -14,6 +14,7 @@ export default new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
-    todos
+    todos,
+    colorChange,
   },
 });
