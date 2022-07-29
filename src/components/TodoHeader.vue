@@ -8,21 +8,26 @@
       placeholder="输入任务名称-回车确认"
       autofocus
       v-model.trim="val"
-      @keydown.enter="addTodos(val)"
+      @keydown.enter="addTodos"
     />
   </header>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
-      val: "",
+      val: '',
     };
   },
   methods: {
-    ...mapMutations(["addTodos"]),
+    ...mapActions(['addTodosTaskAsync']),
+
+    addTodos() {
+      this.addTodosTaskAsync(this.val);
+      this.val = '';
+    },
   },
 };
 </script>

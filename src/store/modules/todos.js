@@ -25,25 +25,30 @@ export default {
       // console.log(state.todosTask[payload].done);
     },
     // 按下回车添加任务
-    addTodos(state, payload) {
-      if (payload==='') {
-        return alert('请输入任务')
+    addTodosTask(state, payload) {
+      if (payload === '') {
+        return alert('请输入任务');
       }
       console.log(payload);
-      const id = state.todosTask[state.todosTask.length-1].id+1 || 1
+      const id = state.todosTask[state.todosTask.length - 1].id + 1 || 1;
       state.todosTask.push({
         name: payload,
         done: false,
-        id:id
-      })
-    }
+        id: id,
+      });
+    },
   },
 
   actions: {
-        modifyTodosAsync(context,index) {
-            setTimeout(() => {
-                context.commit('modifyTodos',index)
-            }, 300);
-     } 
+    modifyTodosAsync(context, index) {
+      setTimeout(() => {
+        context.commit('modifyTodos', index);
+      }, 300);
+    },
+    addTodosTaskAsync(context, val) {
+      setTimeout(() => {
+        context.commit('addTodosTask', val);
+      }, 300);
+    },
   },
 };
