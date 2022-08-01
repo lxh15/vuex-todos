@@ -9,19 +9,19 @@
 <script>
 export default {
   data() {
-    return {};
+    return {}
   },
   props: {
     type: {
       type: String,
-      default: 'normal',
-    },
+      default: 'normal'
+    }
   },
 
   created() {},
 
-  methods: {},
-};
+  methods: {}
+}
 </script>
 
 <style scoped lang="less">
